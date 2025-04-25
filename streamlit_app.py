@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
 # URL brute du fichier CSV sur GitHub
-csv_url = 'https://raw.githubusercontent.com/Ter0rra/blank-app/blob/main/student_habits_performance.csv'
+csv_url = 'https://github.com/Ter0rra/blank-app/blob/6813973fbe231ac40da9129ab94dca649ee09702/student_habits_performance.csv'
 #https://github.com/Ter0rra/blank-app/blob/main/student_habits_performance.csv
 
 # Charger le CSV directement depuis GitHub dans un DataFrame
