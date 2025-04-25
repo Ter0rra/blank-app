@@ -11,7 +11,12 @@ from sklearn.pipeline import Pipeline
 
 # Charger les données (assurez-vous de définir df_student_ml correctement ou de le charger depuis un CSV)
 csv_url = "https://raw.githubusercontent.com/Ter0rra/blank-app/6813973fbe231ac40da9129ab94dca649ee09702/student_habits_performance.csv"
-df_student_ml = pd.read_csv(csv_url)
+df_student = pd.read_csv(csv_url)
+df_student = df_student.drop(['student_id'], axis=1)
+df_student['media_hours'] = df_student['netflix_hours'] + df_student['social_media_hours']
+df_student = df_student.reindex(['age', 'gender', 'study_hours_per_day', 'social_media_hours','netflix_hours', 'media_hours','part_time_job','attendance_percentage','sleep_hours','diet_quality','exercise_frequency','parental_education_level','internet_quality','mental_health_rating','extracurricular_participation','exam_score'], axis=1)
+df_num_value = df_student.select_dtypes(include=['number'])
+df_student_ml = df_num_value.drop(['age', 'social_media_hours', 'netflix_hours'], axis=1)
 
 # Séparation des variables
 X = df_student_ml.drop('exam_score', axis=1)
