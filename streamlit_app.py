@@ -7,11 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
 # URL brute du fichier CSV sur GitHub
-csv_url = 'https://github.com/Ter0rra/blank-app/blob/6813973fbe231ac40da9129ab94dca649ee09702/student_habits_performance.csv'
+csv_url = 'https://raw.githubusercontent.com/Ter0rra/blank-app/6813973fbe231ac40da9129ab94dca649ee09702/student_habits_performance.csv'
 #https://github.com/Ter0rra/blank-app/blob/main/student_habits_performance.csv
 
 # Charger le CSV directement depuis GitHub dans un DataFrame
-df_student = pd.read_csv(fr'{csv_url}')
+df_student = pd.read_csv(csv_url)
 df_student = df_student.drop(['student_id'], axis=1)
 df_student['media_hours'] = df_student['netflix_hours'] + df_student['social_media_hours']
 df_student = df_student.reindex(['age', 'gender', 'study_hours_per_day', 'social_media_hours','netflix_hours', 'media_hours','part_time_job','attendance_percentage','sleep_hours','diet_quality','exercise_frequency','parental_education_level','internet_quality','mental_health_rating','extracurricular_participation','exam_score'], axis=1)
